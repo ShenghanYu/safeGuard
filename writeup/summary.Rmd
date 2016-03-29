@@ -4,7 +4,8 @@ author: "Safeguard Team, Group 10"
 date: "March 28, 2016"
 output: html_document
 ---
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, cache=FALSE, result=FALSE, warning=FALSE, comment=FALSE, warning=FALSE}
+
 library("plotly")
 library(corrplot)
 library(leaflet)
@@ -48,9 +49,6 @@ num_ppl = aggregate(oncampus_crime$Total,by=list(oncampus_crime$State), FUN=sum)
 crime_total = data.frame(state_crime[,1],rowSums(state_crime[,-1]))
 names(crime_total)[1] = "state" 
 names(crime_total)[2] = "number_of_crimes"
-
-
-library(plotly)
 
 # give state boundaries a white border
 l <- list(color = toRGB("white"), width = 2)
